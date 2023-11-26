@@ -15,20 +15,27 @@ The `AutoPreprocessor` class handles the preprocessing steps required before tra
 - **Fit and Transform**: Fits an imputer, encoder (for categorical columns), and scaler (for numeric columns) on the provided data. The transformations are then applied to the data.
 - **Oversampling**: Optionally applies oversampling to balance the class distribution in the training data.
 - **Split Data**: Splits the data into training and testing sets.
-
+## Installation
+```python
+pip install autolr
+```
 ## Usage
-1. **Initialization**: Create an instance of the `AutoLogisticRegression` class by providing the path to the training dataset, the target column name, and the output path for the model and predictions. Optionally, you can specify the number of folds for cross-validation.
+1. **Importing**:
+```python
+from autolr import AutoLogisticRegression
+```
+2. **Initialization**: Create an instance of the `AutoLogisticRegression` class by providing the path to the training dataset, the target column name, and the output path for the model and predictions. Optionally, you can specify the number of folds for cross-validation.
 
 ```python
 auto_lr = AutoLogisticRegression(data_path='path/to/training_data.csv', target_column='target', output_path='output', num_folds=5)
 ```
-2. **Training Model**: After training, the model is automatically evaluated using metrics such as accuracy, classification report, and confusion matrix. The feature importance is also displayed.
+3. **Training Model**: After training, the model is automatically evaluated using metrics such as accuracy, classification report, and confusion matrix. The feature importance is also displayed.
 
 ```python
 # Training the model and evaluating it
 auto_lr.train()
 ```
-3. **Prediction**: After training, you can use the trained model to make predictions on new data by providing the path to the new dataset.
+4. **Prediction**: After training, you can use the trained model to make predictions on new data by providing the path to the new dataset.
 ```python
 predictions = auto_lr.predict(data_path='path/to/test_data.csv')
 ```
